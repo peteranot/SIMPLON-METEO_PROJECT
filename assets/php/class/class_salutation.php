@@ -4,10 +4,12 @@
         public function salutation($prenom){
             $prenom = $prenom;
 
-
+			//call function bonjour()
             $hello = $this->bonjour();
+			//call function temps()
             $meteo = $this->temps();
-
+			
+			//show message 
             $phrase = $hello." ".$prenom." ".$meteo;
             return json_encode($phrase);
         }

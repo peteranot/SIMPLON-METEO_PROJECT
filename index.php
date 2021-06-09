@@ -8,17 +8,20 @@
 		<script language="javascript">
 
 
-            // html chargement fini
+            // html chargement finish
             // executer 
             $(document).ready(function(){
                 
                 $('#btnPrompt').click(function(){
-                    var info_prompt = prompt("Saisissez votre prénom ",""); //boite prompt
-                    getPrenom(info_prompt); //fonction getPrenom qui recupere la valeur saisie dans le prompt
+					//open prompt
+                    var info_prompt = prompt("Saisissez votre prénom ",""); 
+					//function getPrenom get value prompt
+                    getPrenom(info_prompt); 
                 })
 
                 $('#btnVider').click(function(){
-                    $('#affiche').empty(); //vider le contenue de #affiche
+					//clear #affiche
+                    $('#affiche').empty(); 
                 })
 
             })
@@ -27,14 +30,20 @@
             function getPrenom(data_res){ 
                 //ajax
                 $.ajax({
-                    type: 'post',  //method POST
-                    url: 'assets/php/ajax.php', //renvoie les données dans ajax.php
+					//method POST
+                    type: 'post',  
+					//return data in ajax.php
+                    url: 'assets/php/ajax.php', 
                     data: {
-                        'reponse': data_res  //reponse -> contient la valeur recuperer par la fonction getPrenom et envoyer dans ajax.php
+						
+                        'reponse': data_res  
                     },
-                    datatype: 'json', //les données sont de type json
-                    success: function(data) { //si cela fonctionne avec success
-                        $('#affiche').append(data); //afficher dans #affiche le resultat de 'data'
+					//json format
+                    datatype: 'json', 
+					//sucess
+                    success: function(data) { 
+						//show
+                        $('#affiche').append(data); 
                     }
                 });
             }

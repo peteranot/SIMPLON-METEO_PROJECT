@@ -4,7 +4,7 @@
 
     $salut = new salut();
 
-
+	//get reponse
     $reponse = $_POST['reponse'];
 
     $reponse = $salut->salutation($reponse);
